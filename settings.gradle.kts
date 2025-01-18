@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "NewApp"
 include(":app")
+include(":feature:onboarding")
+include(":core")
