@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil3.load
 import com.eaapps.core.base.adapter.BaseRecyclerAdapterList
+import com.eaapps.favorite.R
 import com.eaapps.headlines.databinding.TopHeadlineItemBinding
 import com.eaapps.headlines.domain.entity.HeadlineEntity
 
@@ -20,11 +21,21 @@ class TopHeadlineAdapter(private val onSelectFavorite: (HeadlineEntity) -> Unit,
             date.text = obj?.date ?: ""
             desc.text = obj?.shortDescription ?: ""
 
+            if (obj?.favorite == true)
+                favBtn.setImageResource(R.drawable.baseline_favorite_32)
+            else
+                favBtn.setImageResource(R.drawable.baseline_favorite_border_32)
+
+            favBtn.isEnabled = obj?.favorite == false
+
             root.setOnClickListener {
                 obj?.url?.let { it1 -> onSelectHeadline(it1) }
             }
             favBtn.setOnClickListener {
-                obj?.let { it1 -> onSelectFavorite(it1) }
+                obj?.apply {
+                    onSelectFavorite(this)
+                }
+
             }
         }
 

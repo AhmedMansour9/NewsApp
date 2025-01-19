@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.eaapps.headlines.R
 import com.eaapps.headlines.databinding.FragmentHeadlineBinding
 import com.eaapps.headlines.presentation.headline.adapter.TopHeadlineAdapter
@@ -24,9 +25,12 @@ class HeadlineFragment : Fragment(R.layout.fragment_headline) {
     private lateinit var binding: FragmentHeadlineBinding
     private val viewModel: HeadlineViewModel by viewModels()
     private val adapter: TopHeadlineAdapter by lazy {
-        TopHeadlineAdapter(onSelectFavorite = {}, onSelectHeadline = {
+        TopHeadlineAdapter(onSelectFavorite = {
+            viewModel.addArticleToFavorite(it)
+        }, onSelectHeadline = {
             try{
-                requireContext().startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it)))
+                findNavController().navigate(R.id.action_headlineFragment_to_favoriteFragment)
+//                requireContext().startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it)))
             }catch (_:ActivityNotFoundException){}
         })
     }

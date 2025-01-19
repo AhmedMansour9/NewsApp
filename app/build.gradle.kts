@@ -66,6 +66,7 @@ dependencies {
 
     implementation(project(":feature:onboarding"))
     implementation(project(":feature:headlines"))
+    implementation(project(":feature:favorite"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
