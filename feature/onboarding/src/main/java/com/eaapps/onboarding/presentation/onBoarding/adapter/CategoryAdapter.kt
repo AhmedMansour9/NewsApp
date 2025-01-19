@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.eaapps.core.ui.adapter.BaseRecyclerAdapterList
+import com.eaapps.core.base.adapter.BaseRecyclerAdapterList
 import com.eaapps.onboarding.databinding.ItemCategoryBinding
 
 class CategoryAdapter(private val onSelectItem: (List<String>) -> Unit) : BaseRecyclerAdapterList<ItemCategoryBinding, String>(CategoryDiffCallback) {

@@ -60,8 +60,12 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    implementation(project(":feature:onboarding"))
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
 
+    implementation(project(":feature:onboarding"))
+    implementation(project(":feature:headlines"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

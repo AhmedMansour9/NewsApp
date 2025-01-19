@@ -23,3 +23,5 @@ rootProject.name = "NewApp"
 include(":app")
 include(":feature:onboarding")
 include(":core")
+include(":feature:headlines")
+include(":database")

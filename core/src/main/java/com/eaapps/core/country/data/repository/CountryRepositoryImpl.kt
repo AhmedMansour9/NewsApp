@@ -11,6 +11,7 @@ class CountryRepositoryImpl @Inject constructor(private val cache: CountryCacheD
     override suspend fun getCountryFromCache(): String? = cache.getCountryFromCache()
 
     override suspend fun fetchCountries(): List<CountryEntity> = listOf(
+        CountryEntity("United State", "us"),
         CountryEntity("Argentina", "ar"),
         CountryEntity("Australia", "au"),
         CountryEntity("Belgium", "be"),

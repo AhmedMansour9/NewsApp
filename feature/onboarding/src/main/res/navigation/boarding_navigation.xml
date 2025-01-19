@@ -10,15 +10,10 @@
         android:name="com.eaapps.onboarding.presentation.onBoarding.OnBoardingFragment"
         android:label="OnBoardingFragment"
         tools:layout="@layout/fragment_on_boarding">
-        <deepLink
-            android:id="@+id/deep_link_home"
-            app:uri="app://home" />
 
-        <deepLink
-            app:uri="android-app://androidx.navigation.app/homeFragment"
-
-            />
-
+        <action
+            android:id="@+id/action_onBoardingFragment_to_headlineFragment"
+            app:destination="@id/headlineFragment" />
 
 
     </fragment>

@@ -1,4 +1,4 @@
-package com.eaapps.core.ui.adapter
+package com.eaapps.core.base.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
