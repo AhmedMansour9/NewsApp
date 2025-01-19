@@ -7,12 +7,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.eaapps.core.base.error.getErrorMessage
 import com.eaapps.headlines.R
 import com.eaapps.headlines.databinding.FragmentHeadlineBinding
 import com.eaapps.headlines.presentation.headline.adapter.TopHeadlineAdapter
@@ -28,10 +30,10 @@ class HeadlineFragment : Fragment(R.layout.fragment_headline) {
         TopHeadlineAdapter(onSelectFavorite = {
             viewModel.addArticleToFavorite(it)
         }, onSelectHeadline = {
-            try{
-                findNavController().navigate(R.id.action_headlineFragment_to_favoriteFragment)
-//                requireContext().startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it)))
-            }catch (_:ActivityNotFoundException){}
+            try {
+                requireContext().startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it)))
+            } catch (_: ActivityNotFoundException) {
+            }
         })
     }
 
@@ -42,9 +44,20 @@ class HeadlineFragment : Fragment(R.layout.fragment_headline) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.bindClicks()
         binding.bindTopHeadlineRecyclerView()
         binding.collectTopHeadline()
 
+    }
+
+    private fun FragmentHeadlineBinding.bindClicks() {
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_headlineFragment_to_favoriteFragment)
+
+        }
+        searchBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_headlineFragment_to_searchFragment)
+        }
     }
 
     private fun FragmentHeadlineBinding.bindTopHeadlineRecyclerView() {
@@ -63,8 +76,10 @@ class HeadlineFragment : Fragment(R.layout.fragment_headline) {
                         adapter.submitList(emptyList())
                         topHeadlineRecycler.visibility = View.GONE
                     }
-
-                 }
+                    it.error?.getErrorMessage()?.let { errorMessage ->
+                        Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
     }

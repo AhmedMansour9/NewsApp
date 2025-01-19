@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/onBoardingFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/headlineFragment"
@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_headlineFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_headlineFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
@@ -26,4 +29,23 @@
         android:id="@+id/favoriteFragment"
         android:name="com.eaapps.favorite.presentation.favorite.FavoriteFragment"
         android:label="FavoriteFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.eaapps.search.presentation.search.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.eaapps.newapp.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_headlineFragment"
+            app:destination="@id/headlineFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

@@ -64,9 +64,11 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
 
+    implementation(project(":core"))
     implementation(project(":feature:onboarding"))
     implementation(project(":feature:headlines"))
     implementation(project(":feature:favorite"))
+    implementation(project(":feature:search"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

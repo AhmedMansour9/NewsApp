@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.eaapps.favorite.R
 import com.eaapps.favorite.databinding.FragmentFavoriteBinding
 import com.eaapps.favorite.presentation.favorite.adapter.FavoriteAdapter
@@ -37,6 +38,9 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
         binding.setupFavoriteRecyclerView()
         binding.collectFavoriteState()
     }

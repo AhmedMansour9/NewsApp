@@ -12,5 +12,5 @@ data class FavoriteLocalEntity(
     val image: String?,
     val source: String,
     val url: String,
-    val shortDescription: String
+    val shortDescription: String?
 )

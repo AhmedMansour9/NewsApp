@@ -21,12 +21,12 @@ android {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             buildConfigField("String", "BASE_URL", "\"https://newsapi.org/\"")
-            buildConfigField("String","API_KEY","\"d3c39596b0644b90b719d146657ded9f\"")
+            buildConfigField("String","API_KEY","\"13a2e25188fa4cce9cf0a842a8e6f271\"")
         }
 
         debug {
             buildConfigField("String", "BASE_URL", "\"https://newsapi.org/\"")
-            buildConfigField("String","API_KEY","\"d3c39596b0644b90b719d146657ded9f\"")
+            buildConfigField("String","API_KEY","\"13a2e25188fa4cce9cf0a842a8e6f271\"")
         }
     }
     compileOptions {

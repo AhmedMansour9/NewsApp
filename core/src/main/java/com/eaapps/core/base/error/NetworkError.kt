@@ -80,7 +80,9 @@ object NetworkErrorTransformer {
     private fun isRequestCanceled(throwable: Throwable) = throwable is IOException && throwable.message?.contentEquals("Canceled") ?: false
 
     private fun resolveOtherException(incoming: Throwable) = if (isRequestCanceled(incoming)) NetworkError.ConnectionSpike
-    else NetworkError.UnknownNetworkingError
+    else {
+        NetworkError.UnknownNetworkingError
+    }
 
 
 }
