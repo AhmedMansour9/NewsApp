@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import androidx.room.Room.databaseBuilder
 import com.eaapps.database.LocalDatabase
+import com.eaapps.database.dto.FavoriteDao
 import com.eaapps.database.dto.HeadlineDao
 import dagger.Module
 import dagger.Provides
@@ -26,6 +27,11 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideHeadlineDao(database: LocalDatabase): HeadlineDao = database.headlineDao()
+
+
+    @Provides
+    @Singleton
+    fun provideFavoriteDao(database: LocalDatabase): FavoriteDao = database.favoriteDao()
 
 
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="top_headline_title">Top Headline</string>
+    <string name="favorite_articles_title">Favorite Articles</string>
+    <string name="any_article_in_favorite_msg">You don\'t add any article in favorite</string>
+</resources>

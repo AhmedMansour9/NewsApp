@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/headlineFragment"
         android:name="com.eaapps.headlines.presentation.headline.HeadlineFragment"
-        android:label="HeadlineFragment" />
+        android:label="HeadlineFragment" >
+        <action
+            android:id="@+id/action_headlineFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
         android:name="com.eaapps.onboarding.presentation.onBoarding.OnBoardingFragment"
@@ -18,4 +22,8 @@
             app:popUpTo="@id/onBoardingFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.eaapps.favorite.presentation.favorite.FavoriteFragment"
+        android:label="FavoriteFragment" />
 </navigation>

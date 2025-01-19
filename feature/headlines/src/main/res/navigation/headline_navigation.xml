@@ -9,6 +9,14 @@
         android:id="@+id/headlineFragment"
         android:name="com.eaapps.headlines.presentation.headline.HeadlineFragment"
         android:label="HeadlineFragment"
-        tools:layout="@layout/fragment_headline" />
+        tools:layout="@layout/fragment_headline" >
+        <action
+            android:id="@+id/action_headlineFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.eaapps.favorite.presentation.favorite.FavoriteFragment"
+        android:label="FavoriteFragment" />
 
 </navigation>
