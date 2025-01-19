@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="select_country_title">Select Country</string>
+    <string name="finish_setup_label">Finish Setup</string>
+    <string name="select_category_title">Select 3 Category</string>
+</resources>
