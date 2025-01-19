@@ -10,5 +10,4 @@ interface CountryRepository {
 
     suspend fun fetchCountries(): List<CountryEntity>
 
-
 }

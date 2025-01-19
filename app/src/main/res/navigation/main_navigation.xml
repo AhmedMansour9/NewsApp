@@ -2,7 +2,20 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/boarding_navigation">
+    app:startDestination="@id/onBoardingFragment">
 
-    <include app:graph="@navigation/boarding_navigation" />
+    <fragment
+        android:id="@+id/headlineFragment"
+        android:name="com.eaapps.headlines.presentation.headline.HeadlineFragment"
+        android:label="HeadlineFragment" />
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.eaapps.onboarding.presentation.onBoarding.OnBoardingFragment"
+        android:label="OnBoardingFragment">
+        <action
+            android:id="@+id/action_onBoardingFragment_to_headlineFragment"
+            app:destination="@id/headlineFragment"
+            app:popUpTo="@id/onBoardingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

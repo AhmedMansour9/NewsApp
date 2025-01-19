@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.eaapps.core.country.domain.entity.CountryEntity
 import com.eaapps.onboarding.R
@@ -67,10 +65,7 @@ class OnBoardingFragment : Fragment(R.layout.fragment_on_boarding) {
     private fun FragmentOnBoardingBinding.bindClicks() {
         buttonFinish.setOnClickListener {
             viewModel.finishSetup()
-            val request = NavDeepLinkRequest.Builder
-                .fromUri("android-app://androidx.navigation.app/homeFragment".toUri())
-                .build()
-            findNavController().navigate(request)
+            findNavController().navigate(R.id.action_onBoardingFragment_to_headlineFragment)
         }
     }
 
