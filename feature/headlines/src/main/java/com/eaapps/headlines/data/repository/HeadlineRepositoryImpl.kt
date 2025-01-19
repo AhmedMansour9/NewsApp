@@ -16,7 +16,7 @@ class HeadlineRepositoryImpl @Inject constructor(private val remote: HeadlineRem
     HeadlineRepository {
 
     override fun getHeadlines(country: String, category: String): Flow<FlowResultSource<List<HeadlineEntity>>> = networkBoundResource(query = {
-        local.getTopHeadline().map { it -> it.map { it.toDomainEntity() } }
+        local.getTopHeadline().map { it -> it.sortedByDescending { it.date }.map { it.toDomainEntity() } }
     }, fetch = {
         remote.getTopHeadline(country, category)
     }, saveFetchResult = { it ->

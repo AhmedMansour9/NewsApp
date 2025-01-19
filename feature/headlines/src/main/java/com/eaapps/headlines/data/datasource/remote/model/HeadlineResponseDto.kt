@@ -9,16 +9,16 @@ data class HeadlineResponseDto(
 data class ArticleDto(
     val author:String,
     val title:String,
-    val description:String,
+    val description:String?,
     val url:String,
     val urlToImage:String?,
     val publishedAt:String,
-    val content:String,
+    val content:String?,
     val source:SourceDto
 )
 
 data class SourceDto(
-    val id:String,
+    val id:String?,
     val name:String
 )
 

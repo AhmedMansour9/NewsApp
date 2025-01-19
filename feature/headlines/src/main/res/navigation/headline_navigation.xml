@@ -13,10 +13,16 @@
         <action
             android:id="@+id/action_headlineFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+
+        <action
+            android:id="@+id/action_headlineFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.eaapps.favorite.presentation.favorite.FavoriteFragment"
         android:label="FavoriteFragment" />
+
+
 
 </navigation>
